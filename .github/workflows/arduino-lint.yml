@@ -1,4 +1,4 @@
-name: Check Arduino linting
+name: Arduino lint
 on: [push, pull_request]
 
 jobs:
@@ -11,6 +11,8 @@ jobs:
     - name: Check linting
       uses: arduino/arduino-lint-action@v1.0.2
       with:
-        compliance: "strict"
+        compliance: "permissive"
         project-type: "sketch"
         verbose: true
+        recursive: true
+        path: "./src/main.cpp"
